@@ -503,6 +503,42 @@
     <script>
         // ===== CONFIGURAÇÃO =====
         const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxQrGElthlzHzWFjdrDRqioa17AmMCcFF7fgLsh99CiWhlMnAeveaf3uSFZ15rSaxP4/exec';
+
+        // ===== DADOS DEMO (FALLBACK) =====
+        const DADOS_DEMO = {
+            pdvs: [
+                { ID_PDV: 1, Nome: '🏪 PDV São Paulo', Parte: 'Região Sudeste' },
+                { ID_PDV: 2, Nome: '🏢 PDV Rio de Janeiro', Parte: 'Região Sudeste' },
+                { ID_PDV: 3, Nome: '🏛️ PDV Belo Horizonte', Parte: 'Região Sudeste' },
+                { ID_PDV: 4, Nome: '🌆 PDV Brasília', Parte: 'Região Centro-Oeste' },
+                { ID_PDV: 5, Nome: '🌴 PDV Recife', Parte: 'Região Nordeste' },
+                { ID_PDV: 6, Nome: '🏖️ PDV Salvador', Parte: 'Região Nordeste' },
+                { ID_PDV: 7, Nome: '🏘️ PDV Porto Alegre', Parte: 'Região Sul' },
+                { ID_PDV: 8, Nome: '🎯 PDV Curitiba', Parte: 'Região Sul' },
+                { ID_PDV: 9, Nome: '🌊 PDV Fortaleza', Parte: 'Região Nordeste' },
+                { ID_PDV: 10, Nome: '🚀 PDV Manaus', Parte: 'Região Norte' },
+                { ID_PDV: 11, Nome: '⚙️ PDV Goiânia', Parte: 'Região Centro-Oeste' },
+                { ID_PDV: 12, Nome: '🎨 PDV Cuiabá', Parte: 'Região Centro-Oeste' }
+            ],
+            pois: [
+                { ID: 1, ID_PDV: 1, Nome: '🍔 Burger King SP', Categoria: 'Restaurante', Status: 'Ativo', Endereco: 'Av. Paulista, 1000', Telefone: '(11) 3333-1234', Email: 'sp@burgerking.com.br', Latitude: '-23.5505', Longitude: '-46.6333', Horario: '10:00-22:00', Descricao: 'Restaurante de fast food', Estoque: 'Hambúrgueres' },
+                { ID: 2, ID_PDV: 1, Nome: '☕ Starbucks SP', Categoria: 'Café', Status: 'Ativo', Endereco: 'Rua Augusta, 500', Telefone: '(11) 3333-5678', Email: 'sp@starbucks.com.br', Latitude: '-23.5508', Longitude: '-46.6540', Horario: '07:00-20:00', Descricao: 'Café premium', Estoque: 'Café, Bebidas' },
+                { ID: 3, ID_PDV: 1, Nome: '🏋️ Academia Gold', Categoria: 'Academia', Status: 'Ativo', Endereco: 'Rua Oscar Freire, 200', Telefone: '(11) 3333-9999', Email: 'sp@academiadgold.com.br', Latitude: '-23.5515', Longitude: '-46.6450', Horario: '06:00-23:00', Descricao: 'Academia de ginástica completa', Estoque: 'Equipamentos' },
+                { ID: 4, ID_PDV: 2, Nome: '🍕 Pizza Hut RJ', Categoria: 'Restaurante', Status: 'Ativo', Endereco: 'Av. Rio Branco, 100', Telefone: '(21) 2222-1111', Email: 'rj@pizzahut.com.br', Latitude: '-22.9068', Longitude: '-43.1729', Horario: '11:00-23:00', Descricao: 'Pizzaria tradicional', Estoque: 'Pizzas' },
+                { ID: 5, ID_PDV: 2, Nome: '🍷 Wine Bar RJ', Categoria: 'Bar', Status: 'Ativo', Endereco: 'Rua Ouvidor, 50', Telefone: '(21) 2222-5555', Email: 'rj@winebar.com.br', Latitude: '-22.9066', Longitude: '-43.1805', Horario: '18:00-02:00', Descricao: 'Bar de vinhos selecionados', Estoque: 'Vinhos' },
+                { ID: 6, ID_PDV: 3, Nome: '🛒 Supermercado BH', Categoria: 'Loja', Status: 'Ativo', Endereco: 'Av. Getúlio Vargas, 1000', Telefone: '(31) 3333-2222', Email: 'bh@supermercado.com.br', Latitude: '-19.9191', Longitude: '-43.9386', Horario: '07:00-22:00', Descricao: 'Supermercado completo', Estoque: 'Alimentos' },
+                { ID: 7, ID_PDV: 4, Nome: '🏥 Clínica Brasília', Categoria: 'Consultório', Status: 'Ativo', Endereco: 'SQN 306 Bloco B', Telefone: '(61) 4444-3333', Email: 'bsb@clinica.com.br', Latitude: '-15.7942', Longitude: '-47.8822', Horario: '08:00-18:00', Descricao: 'Clínica médica geral', Estoque: 'Serviços Médicos' },
+                { ID: 8, ID_PDV: 5, Nome: '🍜 Restaurante Recife', Categoria: 'Restaurante', Status: 'Ativo', Endereco: 'Rua da Aurora, 500', Telefone: '(81) 5555-4444', Email: 'rec@restaurante.com.br', Latitude: '-8.0476', Longitude: '-34.8770', Horario: '11:00-23:00', Descricao: 'Gastronomia regional', Estoque: 'Pratos típicos' },
+                { ID: 9, ID_PDV: 6, Nome: '🏖️ Bar Salvador', Categoria: 'Bar', Status: 'Ativo', Endereco: 'Av. Oceânica, 100', Telefone: '(71) 6666-5555', Email: 'sal@bar.com.br', Latitude: '-13.0044', Longitude: '-38.5106', Horario: '17:00-03:00', Descricao: 'Bar com vista para o mar', Estoque: 'Bebidas' },
+                { ID: 10, ID_PDV: 7, Nome: '🎭 Centro Cultural POA', Categoria: 'Outro', Status: 'Ativo', Endereco: 'Av. Farrapos, 100', Telefone: '(51) 7777-6666', Email: 'poa@centro.com.br', Latitude: '-30.0268', Longitude: '-51.2176', Horario: '10:00-20:00', Descricao: 'Centro cultural', Estoque: 'Eventos' },
+                { ID: 11, ID_PDV: 8, Nome: '📚 Livraria Curitiba', Categoria: 'Loja', Status: 'Ativo', Endereco: 'Rua XV de Novembro, 500', Telefone: '(41) 8888-7777', Email: 'cwb@livraria.com.br', Latitude: '-25.4284', Longitude: '-49.2733', Horario: '09:00-21:00', Descricao: 'Livraria com café', Estoque: 'Livros' },
+                { ID: 12, ID_PDV: 9, Nome: '🏄 Praia Club Fortaleza', Categoria: 'Outro', Status: 'Ativo', Endereco: 'Praia de Iracema', Telefone: '(85) 9999-8888', Email: 'for@praia.com.br', Latitude: '-3.7319', Longitude: '-38.5263', Horario: '08:00-20:00', Descricao: 'Club de praia com restaurante', Estoque: 'Bebidas e Alimentos' },
+                { ID: 13, ID_PDV: 10, Nome: '🌿 Floresta Manaus', Categoria: 'Outro', Status: 'Ativo', Endereco: 'Estrada da Floresta, 1000', Telefone: '(92) 1010-9999', Email: 'manaus@floresta.com.br', Latitude: '-3.1190', Longitude: '-60.0217', Horario: '06:00-18:00', Descricao: 'Ecoturismo na floresta', Estoque: 'Serviços' },
+                { ID: 14, ID_PDV: 11, Nome: '🎪 Shopping Goiânia', Categoria: 'Loja', Status: 'Ativo', Endereco: 'Av. Goiás, 500', Telefone: '(62) 1111-1010', Email: 'goi@shopping.com.br', Latitude: '-15.8267', Longitude: '-48.9516', Horario: '10:00-22:00', Descricao: 'Shopping center', Estoque: 'Variedade' },
+                { ID: 15, ID_PDV: 12, Nome: '🎨 Galeria Cuiabá', Categoria: 'Outro', Status: 'Ativo', Endereco: 'Rua Barão de Melgaço, 300', Telefone: '(65) 1212-1111', Email: 'cuiaba@galeria.com.br', Latitude: '-15.5939', Longitude: '-56.0992', Horario: '10:00-18:00', Descricao: 'Galeria de arte contemporânea', Estoque: 'Obras de arte' }
+            ]
+        };
+
         let dadosGlobais = {
             pdvs: [],
             pois: [],
@@ -513,26 +549,40 @@
         // ===== CARREGAR DADOS =====
         async function carregarDados() {
             try {
-                console.log('Carregando dados...');
+                console.log('Carregando dados do Apps Script...');
                 const response = await fetch(APPS_SCRIPT_URL);
                 const dados = await response.json();
 
                 if (dados.error) {
-                    mostrarAlerta('Erro ao carregar dados: ' + dados.error, 'error');
+                    console.warn('Erro no Apps Script, usando dados DEMO');
+                    carregarDemoData();
+                    mostrarAlerta('⚠️ Modo Demo: Usando dados de exemplo', 'warning');
                     return;
                 }
 
-                dadosGlobais.pdvs = dados.pdvs || [];
-                dadosGlobais.pois = dados.pois || [];
-
-                console.log('PDVs carregados:', dadosGlobais.pdvs.length);
-                console.log('POIs carregados:', dadosGlobais.pois.length);
-
-                renderizarPDVs();
+                if (dados.pdvs && dados.pdvs.length > 0) {
+                    dadosGlobais.pdvs = dados.pdvs;
+                    dadosGlobais.pois = dados.pois || [];
+                    console.log('PDVs carregados:', dadosGlobais.pdvs.length);
+                    renderizarPDVs();
+                } else {
+                    console.warn('Nenhum dado retornado, usando DEMO');
+                    carregarDemoData();
+                }
             } catch (error) {
                 console.error('Erro ao carregar dados:', error);
-                mostrarAlerta('Erro na conexão: ' + error.message, 'error');
+                console.log('Carregando dados DEMO como fallback...');
+                carregarDemoData();
+                mostrarAlerta('⚠️ Modo Demo: Usando dados de exemplo (Backend indisponível)', 'warning');
             }
+        }
+
+        // ===== CARREGAR DADOS DEMO =====
+        function carregarDemoData() {
+            dadosGlobais.pdvs = DADOS_DEMO.pdvs;
+            dadosGlobais.pois = DADOS_DEMO.pois;
+            console.log('Dados DEMO carregados:', dadosGlobais.pdvs.length, 'PDVs');
+            renderizarPDVs();
         }
 
         // ===== RENDERIZAR PDVs =====
