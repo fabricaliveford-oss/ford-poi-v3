@@ -1,0 +1,15 @@
+{
+  "name": "ford-poi-v3",
+  "version": "3.0.0",
+  "description": "FORD POI v3.0 - Plataforma de Gestão de Pontos de Interesse",
+  "main": "index.html",
+  "scripts": {
+    "deploy:github": "git add . && git commit -m 'Ford POI v3 - Deploy' && git push origin main",
+    "deploy:vercel": "vercel",
+    "start": "python -m http.server 8000",
+    "test": "echo 'Abra http://localhost:8000 no navegador'"
+  },
+  "keywords": ["ford", "poi", "cascata", "gerenciamento"],
+  "author": "Ford POI Team",
+  "license": "MIT"
+}
