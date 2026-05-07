@@ -510,41 +510,6 @@
             poiAtual: null
         };
 
-        // ===== DADOS MOCKADOS PARA DEMONSTRAÇÃO =====
-        const DADOS_DEMO = {
-            pdvs: [
-                { ID_PDV: 1, Nome: '🏪 São Paulo - Centro', Regional: 'SP' },
-                { ID_PDV: 2, Nome: '🏪 São Paulo - Zona Sul', Regional: 'SP' },
-                { ID_PDV: 3, Nome: '🏪 Rio de Janeiro - Centro', Regional: 'RJ' },
-                { ID_PDV: 4, Nome: '🏪 Rio de Janeiro - Zona Oeste', Regional: 'RJ' },
-                { ID_PDV: 5, Nome: '🏪 Belo Horizonte - Centro', Regional: 'MG' },
-                { ID_PDV: 6, Nome: '🏪 Belo Horizonte - Savassi', Regional: 'MG' },
-                { ID_PDV: 7, Nome: '🏪 Brasília - Asa Sul', Regional: 'DF' },
-                { ID_PDV: 8, Nome: '🏪 Salvador - Barra', Regional: 'BA' },
-                { ID_PDV: 9, Nome: '🏪 Recife - Boa Viagem', Regional: 'PE' },
-                { ID_PDV: 10, Nome: '🏪 Curitiba - Centro', Regional: 'PR' },
-                { ID_PDV: 11, Nome: '🏪 Porto Alegre - Centro', Regional: 'RS' },
-                { ID_PDV: 12, Nome: '🏪 Manaus - Centro', Regional: 'AM' }
-            ],
-            pois: [
-                { ID: 1, ID_PDV: 1, Nome: 'Bar do João', Categoria: 'Bar', Status: 'Ativo', Endereco: 'Av. Paulista, 1000', Telefone: '(11) 98765-4321', Email: 'joao@bar.com', Latitude: '-23.561', Longitude: '-46.656', Horario: '18:00-02:00', Descricao: 'Bar com drinks e petiscos', Estoque: 'Bebidas' },
-                { ID: 2, ID_PDV: 1, Nome: 'Restaurante Silva', Categoria: 'Restaurante', Status: 'Ativo', Endereco: 'Rua Augusta, 500', Telefone: '(11) 3121-9000', Email: 'contato@restaurante.com', Latitude: '-23.562', Longitude: '-46.657', Horario: '11:30-23:00', Descricao: 'Culinária brasileira', Estoque: 'Alimentos' },
-                { ID: 3, ID_PDV: 1, Nome: 'Café Expresso', Categoria: 'Café', Status: 'Ativo', Endereco: 'Rua Oscar Freire, 200', Telefone: '(11) 3063-4512', Email: 'cafe@expresso.com', Latitude: '-23.563', Longitude: '-46.658', Horario: '07:00-20:00', Descricao: 'Café gourmet e bolos', Estoque: 'Bebidas e Alimentos' },
-                { ID: 4, ID_PDV: 2, Nome: 'Pizzaria Napoli', Categoria: 'Pizzaria', Status: 'Ativo', Endereco: 'Av. Brasil, 1500', Telefone: '(11) 5549-2000', Email: 'pizza@napoli.com', Latitude: '-23.610', Longitude: '-46.660', Horario: '17:00-23:30', Descricao: 'Pizzas italianas', Estoque: 'Alimentos' },
-                { ID: 5, ID_PDV: 2, Nome: 'Açaí do Bem', Categoria: 'Sorveteria', Status: 'Ativo', Endereco: 'Rua Vergueiro, 800', Telefone: '(11) 3275-1234', Email: 'acai@dobem.com', Latitude: '-23.611', Longitude: '-46.661', Horario: '10:00-22:00', Descricao: 'Açaí e smoothies', Estoque: 'Bebidas' },
-                { ID: 6, ID_PDV: 3, Nome: 'Boteco Carioca', Categoria: 'Bar', Status: 'Ativo', Endereco: 'Av. Rio Branco, 500', Telefone: '(21) 2533-1234', Email: 'boteco@carioca.com', Latitude: '-22.906', Longitude: '-43.180', Horario: '17:00-02:00', Descricao: 'Bar com música ao vivo', Estoque: 'Bebidas' },
-                { ID: 7, ID_PDV: 3, Nome: 'Churrascaria Rio', Categoria: 'Restaurante', Status: 'Ativo', Endereco: 'Rua das Flores, 300', Telefone: '(21) 2524-0000', Email: 'churrasco@rio.com', Latitude: '-22.907', Longitude: '-43.181', Horario: '11:00-23:00', Descricao: 'Churrasco à vontade', Estoque: 'Alimentos' },
-                { ID: 8, ID_PDV: 4, Nome: 'Sorveteria Gelado', Categoria: 'Sorveteria', Status: 'Prospectado', Endereco: 'Av. Ayrton Senna, 2000', Telefone: '(21) 2445-5678', Email: 'gelado@sorv.com', Latitude: '-22.950', Longitude: '-43.350', Horario: '12:00-21:00', Descricao: 'Sorvete artesanal', Estoque: 'Bebidas' },
-                { ID: 9, ID_PDV: 5, Nome: 'Café Colonial', Categoria: 'Café', Status: 'Ativo', Endereco: 'Av. Getúlio Vargas, 1000', Telefone: '(31) 3292-1000', Email: 'cafe@colonial.com', Latitude: '-19.927', Longitude: '-43.935', Horario: '07:00-19:00', Descricao: 'Café e doces coloniais', Estoque: 'Bebidas e Alimentos' },
-                { ID: 10, ID_PDV: 6, Nome: 'Restaurante Mineiro', Categoria: 'Restaurante', Status: 'Ativo', Endereco: 'Rua Piaui, 600', Telefone: '(31) 3285-0000', Email: 'mineiro@rest.com', Latitude: '-19.928', Longitude: '-43.936', Horario: '11:00-22:00', Descricao: 'Comida mineira tradicional', Estoque: 'Alimentos' },
-                { ID: 11, ID_PDV: 7, Nome: 'Lanchonete Brasília', Categoria: 'Lanchonete', Status: 'Ativo', Endereco: 'SHCS Quadra 204, Bloco A', Telefone: '(61) 3226-2000', Email: 'lanch@brasilia.com', Latitude: '-15.789', Longitude: '-47.879', Horario: '09:00-20:00', Descricao: 'Lanches rápidos', Estoque: 'Alimentos' },
-                { ID: 12, ID_PDV: 8, Nome: 'Barraca de Frutas', Categoria: 'Frutaria', Status: 'Prospectado', Endereco: 'Av. Sete de Setembro, 1000', Telefone: '(71) 3264-4000', Email: 'frutas@barra.com', Latitude: '-12.977', Longitude: '-38.501', Horario: '06:00-18:00', Descricao: 'Frutas tropicais frescas', Estoque: 'Alimentos' },
-                { ID: 13, ID_PDV: 9, Nome: 'Restaurante Recifense', Categoria: 'Restaurante', Status: 'Ativo', Endereco: 'Av. Conselheiro Aguiar, 500', Telefone: '(81) 3327-1234', Email: 'recife@rest.com', Latitude: '-8.085', Longitude: '-34.900', Horario: '11:00-23:00', Descricao: 'Comida regional pernambucana', Estoque: 'Alimentos' },
-                { ID: 14, ID_PDV: 10, Nome: 'Café Curitibano', Categoria: 'Café', Status: 'Ativo', Endereco: 'Rua XV de Novembro, 200', Telefone: '(41) 3223-3000', Email: 'cafe@curitiba.com', Latitude: '-25.428', Longitude: '-49.269', Horario: '07:00-20:00', Descricao: 'Café especial gaúcho', Estoque: 'Bebidas' },
-                { ID: 15, ID_PDV: 11, Nome: 'Churrascaria Gaúcha', Categoria: 'Restaurante', Status: 'Ativo', Endereco: 'Av. Getúlio Vargas, 500', Telefone: '(51) 3212-1111', Email: 'churrasco@gaucha.com', Latitude: '-30.034', Longitude: '-51.217', Horario: '11:00-23:00', Descricao: 'Churrasco estilo gaúcho', Estoque: 'Alimentos' }
-            ]
-        };
-
         // ===== CARREGAR DADOS =====
         async function carregarDados() {
             try {
@@ -553,7 +518,8 @@
                 const dados = await response.json();
 
                 if (dados.error) {
-                    throw new Error(dados.error);
+                    mostrarAlerta('Erro ao carregar dados: ' + dados.error, 'error');
+                    return;
                 }
 
                 dadosGlobais.pdvs = dados.pdvs || [];
@@ -564,17 +530,8 @@
 
                 renderizarPDVs();
             } catch (error) {
-                console.warn('Usando dados de demonstração:', error.message);
-                // Se não conseguir conectar ao backend, usa dados mockados
-                dadosGlobais.pdvs = DADOS_DEMO.pdvs;
-                dadosGlobais.pois = DADOS_DEMO.pois;
-
-                console.log('🎯 Modo Demo ativado!');
-                console.log('PDVs carregados:', dadosGlobais.pdvs.length);
-                console.log('POIs carregados:', dadosGlobais.pois.length);
-
-                renderizarPDVs();
-                mostrarAlerta('📌 Modo Demonstração: Usando dados de exemplo. Conecte o Apps Script para dados reais.', 'warning');
+                console.error('Erro ao carregar dados:', error);
+                mostrarAlerta('Erro na conexão: ' + error.message, 'error');
             }
         }
 
@@ -644,4 +601,150 @@
             poisList.innerHTML = '';
 
             if (pois.length === 0) {
-                poisList.innerHTML = '<div class="empty-state" style="padding: 20px;"><div class="empty-state-icon">🔍</div>Nenhum POI cadastrado nesta regional</div>'
+                poisList.innerHTML = '<div class="empty-state" style="padding: 20px;"><div class="empty-state-icon">🔍</div>Nenhum POI cadastrado nesta regional</div>';
+                return;
+            }
+
+            pois.forEach((poi, index) => {
+                const div = document.createElement('div');
+                div.className = 'poi-item';
+                div.innerHTML = `
+                    <div class="poi-info">
+                        <div class="poi-nome">${poi['Nome'] || 'Sem nome'}</div>
+                        <div class="poi-categoria">${poi['Categoria'] || ''}</div>
+                    </div>
+                    <div class="status-badge status-${poi['Status'] === 'Ativo' ? 'ativo' : 'inativo'}">
+                        ${poi['Status'] || 'Prospectado'}
+                    </div>
+                `;
+
+                div.addEventListener('click', () => selecionarPOI(poi, index));
+                poisList.appendChild(div);
+            });
+        }
+
+        // ===== SELECIONAR POI =====
+        function selecionarPOI(poi, index) {
+            dadosGlobais.poiAtual = poi;
+
+            // Atualizar UI
+            document.querySelectorAll('.poi-item').forEach((el, i) => {
+                el.classList.toggle('active', i === index);
+            });
+
+            // Carregar dados no formulário
+            preencherFormulario(poi);
+        }
+
+        // ===== PREENCHER FORMULÁRIO =====
+        function preencherFormulario(poi) {
+            document.getElementById('emptyForm').style.display = 'none';
+            document.getElementById('formulario').style.display = 'block';
+            document.getElementById('formTitle').textContent = poi['ID'] ? '✏️ Editar POI' : '➕ Novo POI';
+
+            document.getElementById('poiId').value = poi['ID'] || 'Auto-gerado';
+            document.getElementById('poiPDV').value = dadosGlobais.pdvAtual['Nome'] || '';
+            document.getElementById('poiNome').value = poi['Nome'] || '';
+            document.getElementById('poiCategoria').value = poi['Categoria'] || '';
+            document.getElementById('poiEndereco').value = poi['Endereco'] || '';
+            document.getElementById('poiTelefone').value = poi['Telefone'] || '';
+            document.getElementById('poiEmail').value = poi['Email'] || '';
+            document.getElementById('poiLatitude').value = poi['Latitude'] || '';
+            document.getElementById('poiLongitude').value = poi['Longitude'] || '';
+            document.getElementById('poiHorario').value = poi['Horario'] || '';
+            document.getElementById('poiDescricao').value = poi['Descricao'] || '';
+            document.getElementById('poiEstoque').value = poi['Estoque'] || '';
+            document.getElementById('poiStatus').value = poi['Status'] || 'Ativo';
+        }
+
+        // ===== LIMPAR FORMULÁRIO =====
+        function limparFormulario() {
+            dadosGlobais.poiAtual = null;
+            document.getElementById('formulario').style.display = 'none';
+            document.getElementById('emptyForm').style.display = 'block';
+            document.getElementById('poiForm').reset();
+            document.querySelectorAll('.poi-item').forEach(el => el.classList.remove('active'));
+        }
+
+        // ===== NOVO POI =====
+        document.getElementById('btnNovoPOI').addEventListener('click', () => {
+            const poiVazio = {
+                ID: null,
+                Nome: '',
+                Categoria: '',
+                Endereco: '',
+                Telefone: '',
+                Email: '',
+                Latitude: '',
+                Longitude: '',
+                Horario: '',
+                Descricao: '',
+                Estoque: '',
+                Status: 'Prospectado'
+            };
+            selecionarPOI(poiVazio, -1);
+            dadosGlobais.poiAtual = null;
+        });
+
+        // ===== SALVAR POI =====
+        document.getElementById('poiForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const poiData = {
+                ID: dadosGlobais.poiAtual?.['ID'] || 0,
+                ID_PDV: dadosGlobais.pdvAtual['ID_PDV'],
+                Nome: document.getElementById('poiNome').value,
+                Categoria: document.getElementById('poiCategoria').value,
+                Endereco: document.getElementById('poiEndereco').value,
+                Telefone: document.getElementById('poiTelefone').value,
+                Email: document.getElementById('poiEmail').value,
+                Latitude: document.getElementById('poiLatitude').value,
+                Longitude: document.getElementById('poiLongitude').value,
+                Horario: document.getElementById('poiHorario').value,
+                Descricao: document.getElementById('poiDescricao').value,
+                Estoque: document.getElementById('poiEstoque').value,
+                Status: document.getElementById('poiStatus').value
+            };
+
+            try {
+                // Simular salvamento (em produção, fazer POST para Apps Script)
+                const novoId = Math.max(...dadosGlobais.pois.map(p => parseInt(p['ID']) || 0)) + 1;
+
+                if (!poiData.ID || poiData.ID === 0) {
+                    poiData.ID = novoId;
+                    dadosGlobais.pois.push(poiData);
+                    mostrarAlerta(`✅ POI criado com sucesso (ID: ${novoId})`, 'success');
+                } else {
+                    const index = dadosGlobais.pois.findIndex(p => p['ID'] == poiData.ID);
+                    if (index > -1) {
+                        dadosGlobais.pois[index] = poiData;
+                    }
+                    mostrarAlerta('✅ POI atualizado com sucesso', 'success');
+                }
+
+                renderizarPOIsDoPDV(dadosGlobais.pdvAtual);
+                limparFormulario();
+            } catch (error) {
+                mostrarAlerta('❌ Erro ao salvar: ' + error.message, 'error');
+            }
+        });
+
+        // ===== MOSTRAR ALERTAS =====
+        function mostrarAlerta(mensagem, tipo) {
+            const alertContainer = document.getElementById('alertContainer');
+            const div = document.createElement('div');
+            div.className = `alert alert-${tipo} show`;
+            div.textContent = mensagem;
+            alertContainer.innerHTML = '';
+            alertContainer.appendChild(div);
+
+            setTimeout(() => {
+                div.classList.remove('show');
+            }, 5000);
+        }
+
+        // ===== INICIALIZAR =====
+        document.addEventListener('DOMContentLoaded', carregarDados);
+    </script>
+</body>
+</html>
